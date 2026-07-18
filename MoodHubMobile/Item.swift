@@ -1,6 +1,6 @@
 //
 //  Item.swift
-//  MoodHubBobile
+//  MoodHubMobile
 //
 //  Created by 太田啓夢 on 2026/07/18.
 //

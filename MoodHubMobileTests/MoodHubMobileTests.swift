@@ -1,14 +1,14 @@
 //
-//  MoodHubBobileTests.swift
-//  MoodHubBobileTests
+//  MoodHubMobileTests.swift
+//  MoodHubMobileTests
 //
 //  Created by 太田啓夢 on 2026/07/18.
 //
 
 import Testing
-@testable import MoodHubBobile
+@testable import MoodHubMobile
 
-struct MoodHubBobileTests {
+struct MoodHubMobileTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

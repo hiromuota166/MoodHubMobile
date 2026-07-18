@@ -1,13 +1,13 @@
 //
-//  MoodHubBobileUITests.swift
-//  MoodHubBobileUITests
+//  MoodHubMobileUITests.swift
+//  MoodHubMobileUITests
 //
 //  Created by 太田啓夢 on 2026/07/18.
 //
 
 import XCTest
 
-final class MoodHubBobileUITests: XCTestCase {
+final class MoodHubMobileUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

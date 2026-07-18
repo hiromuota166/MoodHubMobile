@@ -1,6 +1,6 @@
 //
-//  MoodHubBobileApp.swift
-//  MoodHubBobile
+//  MoodHubMobileApp.swift
+//  MoodHubMobile
 //
 //  Created by 太田啓夢 on 2026/07/18.
 //
@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct MoodHubBobileApp: App {
+struct MoodHubMobileApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
