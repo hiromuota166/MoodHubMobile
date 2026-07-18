@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		6CB95698300B1E6D006CE16A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CB95680300B1E69006CE16A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CB95687300B1E69006CE16A;
+			remoteInfo = MoodHubBobile;
+		};
+		6CB956A2300B1E6D006CE16A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CB95680300B1E69006CE16A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CB95687300B1E69006CE16A;
+			remoteInfo = MoodHubBobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6CB95688300B1E69006CE16A /* MoodHubBobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodHubBobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB95697300B1E6D006CE16A /* MoodHubBobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodHubBobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB956A1300B1E6D006CE16A /* MoodHubBobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodHubBobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6CB9568A300B1E69006CE16A /* MoodHubBobile */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MoodHubBobile;
+			sourceTree = "<group>";
+		};
+		6CB9569A300B1E6D006CE16A /* MoodHubBobileTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MoodHubBobileTests;
+			sourceTree = "<group>";
+		};
+		6CB956A4300B1E6D006CE16A /* MoodHubBobileUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MoodHubBobileUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CB95685300B1E69006CE16A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		6CB95694300B1E6D006CE16A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		6CB9569E300B1E6D006CE16A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6CB9567F300B1E69006CE16A = {
+			isa = PBXGroup;
+			children = (
+				6CB9568A300B1E69006CE16A /* MoodHubBobile */,
+				6CB9569A300B1E6D006CE16A /* MoodHubBobileTests */,
+				6CB956A4300B1E6D006CE16A /* MoodHubBobileUITests */,
+				6CB95689300B1E69006CE16A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6CB95689300B1E69006CE16A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CB95688300B1E69006CE16A /* MoodHubBobile.app */,
+				6CB95697300B1E6D006CE16A /* MoodHubBobileTests.xctest */,
+				6CB956A1300B1E6D006CE16A /* MoodHubBobileUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CB95687300B1E69006CE16A /* MoodHubBobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB956A9300B1E6D006CE16A /* Build configuration list for PBXNativeTarget "MoodHubBobile" */;
+			buildPhases = (
+				6CB95684300B1E69006CE16A /* Sources */,
+				6CB95685300B1E69006CE16A /* Frameworks */,
+				6CB95686300B1E69006CE16A /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				6CB9568A300B1E69006CE16A /* MoodHubBobile */,
+			);
+			name = MoodHubBobile;
+			productName = MoodHubBobile;
+			productReference = 6CB95688300B1E69006CE16A /* MoodHubBobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6CB95696300B1E6D006CE16A /* MoodHubBobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB956AC300B1E6D006CE16A /* Build configuration list for PBXNativeTarget "MoodHubBobileTests" */;
+			buildPhases = (
+				6CB95693300B1E6D006CE16A /* Sources */,
+				6CB95694300B1E6D006CE16A /* Frameworks */,
+				6CB95695300B1E6D006CE16A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CB95699300B1E6D006CE16A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6CB9569A300B1E6D006CE16A /* MoodHubBobileTests */,
+			);
+			name = MoodHubBobileTests;
+			productName = MoodHubBobileTests;
+			productReference = 6CB95697300B1E6D006CE16A /* MoodHubBobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6CB956A0300B1E6D006CE16A /* MoodHubBobileUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB956AF300B1E6D006CE16A /* Build configuration list for PBXNativeTarget "MoodHubBobileUITests" */;
+			buildPhases = (
+				6CB9569D300B1E6D006CE16A /* Sources */,
+				6CB9569E300B1E6D006CE16A /* Frameworks */,
+				6CB9569F300B1E6D006CE16A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6CB956A3300B1E6D006CE16A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6CB956A4300B1E6D006CE16A /* MoodHubBobileUITests */,
+			);
+			name = MoodHubBobileUITests;
+			productName = MoodHubBobileUITests;
+			productReference = 6CB956A1300B1E6D006CE16A /* MoodHubBobileUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CB95680300B1E69006CE16A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					6CB95687300B1E69006CE16A = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					6CB95696300B1E6D006CE16A = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 6CB95687300B1E69006CE16A;
+					};
+					6CB956A0300B1E6D006CE16A = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 6CB95687300B1E69006CE16A;
+					};
+				};
+			};
+			buildConfigurationList = 6CB95683300B1E69006CE16A /* Build configuration list for PBXProject "MoodHubBobile" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6CB9567F300B1E69006CE16A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6CB95689300B1E69006CE16A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CB95687300B1E69006CE16A /* MoodHubBobile */,
+				6CB95696300B1E6D006CE16A /* MoodHubBobileTests */,
+				6CB956A0300B1E6D006CE16A /* MoodHubBobileUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CB95686300B1E69006CE16A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		6CB95695300B1E6D006CE16A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		6CB9569F300B1E6D006CE16A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CB95684300B1E69006CE16A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		6CB95693300B1E6D006CE16A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		6CB9569D300B1E6D006CE16A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6CB95699300B1E6D006CE16A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CB95687300B1E69006CE16A /* MoodHubBobile */;
+			targetProxy = 6CB95698300B1E6D006CE16A /* PBXContainerItemProxy */;
+		};
+		6CB956A3300B1E6D006CE16A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CB95687300B1E69006CE16A /* MoodHubBobile */;
+			targetProxy = 6CB956A2300B1E6D006CE16A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6CB956A7300B1E6D006CE16A /* Debug configuration for PBXProject "MoodHubBobile" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6CB956A8300B1E6D006CE16A /* Release configuration for PBXProject "MoodHubBobile" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6CB956AA300B1E6D006CE16A /* Debug configuration for PBXNativeTarget "MoodHubBobile" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kemtaro.MoodHubBobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6CB956AB300B1E6D006CE16A /* Release configuration for PBXNativeTarget "MoodHubBobile" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kemtaro.MoodHubBobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6CB956AD300B1E6D006CE16A /* Debug configuration for PBXNativeTarget "MoodHubBobileTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kemtaro.MoodHubBobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoodHubBobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoodHubBobile";
+			};
+			name = Debug;
+		};
+		6CB956AE300B1E6D006CE16A /* Release configuration for PBXNativeTarget "MoodHubBobileTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kemtaro.MoodHubBobileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoodHubBobile.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoodHubBobile";
+			};
+			name = Release;
+		};
+		6CB956B0300B1E6D006CE16A /* Debug configuration for PBXNativeTarget "MoodHubBobileUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kemtaro.MoodHubBobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MoodHubBobile;
+			};
+			name = Debug;
+		};
+		6CB956B1300B1E6D006CE16A /* Release configuration for PBXNativeTarget "MoodHubBobileUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KD8U59P2Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kemtaro.MoodHubBobileUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MoodHubBobile;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CB95683300B1E69006CE16A /* Build configuration list for PBXProject "MoodHubBobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB956A7300B1E6D006CE16A /* Debug configuration for PBXProject "MoodHubBobile" */,
+				6CB956A8300B1E6D006CE16A /* Release configuration for PBXProject "MoodHubBobile" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		6CB956A9300B1E6D006CE16A /* Build configuration list for PBXNativeTarget "MoodHubBobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB956AA300B1E6D006CE16A /* Debug configuration for PBXNativeTarget "MoodHubBobile" */,
+				6CB956AB300B1E6D006CE16A /* Release configuration for PBXNativeTarget "MoodHubBobile" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		6CB956AC300B1E6D006CE16A /* Build configuration list for PBXNativeTarget "MoodHubBobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB956AD300B1E6D006CE16A /* Debug configuration for PBXNativeTarget "MoodHubBobileTests" */,
+				6CB956AE300B1E6D006CE16A /* Release configuration for PBXNativeTarget "MoodHubBobileTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		6CB956AF300B1E6D006CE16A /* Build configuration list for PBXNativeTarget "MoodHubBobileUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB956B0300B1E6D006CE16A /* Debug configuration for PBXNativeTarget "MoodHubBobileUITests" */,
+				6CB956B1300B1E6D006CE16A /* Release configuration for PBXNativeTarget "MoodHubBobileUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CB95680300B1E69006CE16A /* Project object */;
+	validationLevel = 1;
+}
