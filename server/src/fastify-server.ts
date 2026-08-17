@@ -9,6 +9,8 @@ process.loadEnvFile();
 
 const PORT = 3000;
 
+const SPOTIFY_FETCH_TIMEOUT_MS = 5000;
+
 const SpotifyTokenResponse = Type.Object({
   access_token: Type.String(),
 });
@@ -28,7 +30,7 @@ async function getSpotifyAccessToken(): Promise<string> {
       Authorization: `Basic ${credentials}`,
     },
     body: "grant_type=client_credentials",
-    signal: AbortSignal.timeout(5000),
+    signal: AbortSignal.timeout(SPOTIFY_FETCH_TIMEOUT_MS),
   });
   const rawData = await response.json();
   const data = Value.Parse(SpotifyTokenResponse, rawData);
@@ -135,7 +137,7 @@ export async function buildApp() {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
-            signal: AbortSignal.timeout(5000),
+            signal: AbortSignal.timeout(SPOTIFY_FETCH_TIMEOUT_MS),
           },
         );
         const rawData = await spotifyResponse.json();
