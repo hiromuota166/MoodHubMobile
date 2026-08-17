@@ -34,40 +34,9 @@ async function getSpotifyAccessToken(): Promise<string> {
   return data.access_token;
 }
 
-const fastify = Fastify({
-  logger: true,
-}).withTypeProvider<TypeBoxTypeProvider>();
-
-await fastify.register(fastifySwagger, {
-  openapi: {
-    info: {
-      title: "MoodHub Server API",
-      version: "0.1.0",
-    },
-  },
-});
-
-await fastify.register(fastifySwaggerUi, {
-  routePrefix: "/documentation",
-});
-
 const HealthResponse = Type.Object({
   status: Type.String(),
 });
-
-fastify.get(
-  "/health",
-  {
-    schema: {
-      response: {
-        200: HealthResponse,
-      },
-    },
-  },
-  (request, reply) => {
-    return { status: "ok" };
-  },
-);
 
 const Track = Type.Object({
   id: Type.String(),
@@ -79,6 +48,13 @@ const Track = Type.Object({
 
 const SearchResponse = Type.Object({
   tracks: Type.Array(Track),
+});
+
+const BadRequest = Type.Object({
+  statusCode: Type.Integer(),
+  code: Type.String(),
+  error: Type.String(),
+  message: Type.String(),
 });
 
 const ErrorResponse = Type.Object({
@@ -101,56 +77,95 @@ const SpotifyTrackSearchApiResponse = Type.Object({
   }),
 });
 
-fastify.get(
-  "/search",
-  {
-    schema: {
-      querystring: Type.Object({
-        artist: Type.String(),
-      }),
-      response: {
-        200: SearchResponse,
-        502: ErrorResponse,
+export async function buildApp() {
+  const fastify = Fastify({
+    logger: true,
+  }).withTypeProvider<TypeBoxTypeProvider>();
+
+  await fastify.register(fastifySwagger, {
+    openapi: {
+      info: {
+        title: "MoodHub Server API",
+        version: "0.1.0",
       },
     },
-  },
-  async (request, reply) => {
-    const { artist } = request.query;
-    try {
-      const accessToken = await getSpotifyAccessToken();
+  });
 
-      const spotifyResponse = await fetch(
-        `https://api.spotify.com/v1/search?q=${encodeURIComponent(`artist:${artist}`)}&type=track`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
+  await fastify.register(fastifySwaggerUi, {
+    routePrefix: "/documentation",
+  });
+
+  fastify.get(
+    "/health",
+    {
+      schema: {
+        response: {
+          200: HealthResponse,
         },
-      );
-      const rawData = await spotifyResponse.json();
+      },
+    },
+    (request, reply) => {
+      return { status: "ok" };
+    },
+  );
 
-      const data = Value.Parse(SpotifyTrackSearchApiResponse, rawData);
+  fastify.get(
+    "/search",
+    {
+      schema: {
+        querystring: Type.Object({
+          artist: Type.String(),
+        }),
+        response: {
+          200: SearchResponse,
+          400: BadRequest,
+          502: ErrorResponse,
+        },
+      },
+    },
+    async (request, reply) => {
+      const { artist } = request.query;
+      try {
+        const accessToken = await getSpotifyAccessToken();
 
-      const tracks = data.tracks.items.map((item) => ({
-        id: item.id,
-        name: item.name,
-        artists: item.artists.map((a) => a.name),
-        albumImageUrl: item.album.images[0]?.url,
-        previewUrl: item.preview_url ?? undefined,
-      }));
+        const spotifyResponse = await fetch(
+          `https://api.spotify.com/v1/search?q=${encodeURIComponent(`artist:${artist}`)}&type=track`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          },
+        );
+        const rawData = await spotifyResponse.json();
 
-      return { tracks };
-    } catch (error) {
-      reply
-        .code(502)
-        .send({ error: "Spotifyから予期しない形式のレスポンスが返されました" });
+        const data = Value.Parse(SpotifyTrackSearchApiResponse, rawData);
+
+        const tracks = data.tracks.items.map((item) => ({
+          id: item.id,
+          name: item.name,
+          artists: item.artists.map((a) => a.name),
+          albumImageUrl: item.album.images[0]?.url,
+          previewUrl: item.preview_url ?? undefined,
+        }));
+
+        return { tracks };
+      } catch (error) {
+        reply
+          .code(502)
+          .send({ error: "Spotifyから予期しない形式のレスポンスが返されました" });
+      }
+    },
+  );
+
+  return fastify;
+}
+
+if (import.meta.main) {
+  const fastify = await buildApp();
+  fastify.listen({ port: PORT }, (err) => {
+    if (err) {
+      fastify.log.error(err);
+      process.exit(1);
     }
-  },
-);
-
-fastify.listen({ port: PORT }, (err) => {
-  if (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-});
+  });
+}
