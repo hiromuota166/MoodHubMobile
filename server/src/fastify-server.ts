@@ -28,6 +28,7 @@ async function getSpotifyAccessToken(): Promise<string> {
       Authorization: `Basic ${credentials}`,
     },
     body: "grant_type=client_credentials",
+    signal: AbortSignal.timeout(5000),
   });
   const rawData = await response.json();
   const data = Value.Parse(SpotifyTokenResponse, rawData);
@@ -134,6 +135,7 @@ export async function buildApp() {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
+            signal: AbortSignal.timeout(5000),
           },
         );
         const rawData = await spotifyResponse.json();
