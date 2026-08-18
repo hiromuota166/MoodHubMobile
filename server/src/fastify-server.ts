@@ -5,7 +5,7 @@ import { Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
 import type { TypeBoxTypeProvider } from "@fastify/type-provider-typebox";
 
-process.loadEnvFile();
+process.loadEnvFile(new URL("../.env", import.meta.url));
 
 const PORT = 3000;
 
@@ -165,6 +165,12 @@ export async function buildApp() {
 }
 
 if (import.meta.main) {
+  if (!process.env.SPOTIFY_CLIENT_ID || !process.env.SPOTIFY_CLIENT_SECRET) {
+    throw new Error(
+      "環境変数 SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET が設定されていません",
+    );
+  }
+
   const fastify = await buildApp();
   fastify.listen({ port: PORT }, (err) => {
     if (err) {
