@@ -55,7 +55,7 @@ const TrackListResponse = Type.Object({
 
 const TracksQuery = Type.Object({
   genre: Type.String({ minLength: 1 }),
-  limit: Type.Integer({ minimum: 1, maximum: 10, default: 10 })
+  limit: Type.Optional(Type.Integer({ minimum: 1, maximum: 10, default: 10 }))
 });
 
 const BadRequest = Type.Object({
@@ -84,6 +84,36 @@ const SpotifyTrackSearchApiResponse = Type.Object({
     items: Type.Array(SpotifyTrackSearchItem),
   }),
 });
+
+async function searchSpotifyTracks(query: string, limit?: number) {
+  const accessToken = await getSpotifyAccessToken();
+
+  const params = new URLSearchParams({ q: query, type: "track" });
+  if (limit !== undefined) {
+    params.set("limit", String(limit));
+  }
+
+  const spotifyResponse = await fetch(
+    `https://api.spotify.com/v1/search?${params}`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      signal: AbortSignal.timeout(SPOTIFY_FETCH_TIMEOUT_MS),
+    },
+  );
+  const rawData = await spotifyResponse.json();
+
+  const data = Value.Parse(SpotifyTrackSearchApiResponse, rawData);
+
+  return data.tracks.items.map((item) => ({
+    id: item.id,
+    name: item.name,
+    artists: item.artists.map((a) => a.name),
+    albumImageUrl: item.album.images[0]?.url,
+    previewUrl: item.preview_url ?? undefined,
+  }));
+}
 
 export async function buildApp() {
   const fastify = Fastify({
@@ -134,29 +164,7 @@ export async function buildApp() {
     async (request, reply) => {
       const { artist } = request.query;
       try {
-        const accessToken = await getSpotifyAccessToken();
-
-        const spotifyResponse = await fetch(
-          `https://api.spotify.com/v1/search?q=${encodeURIComponent(`artist:${artist}`)}&type=track`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-            signal: AbortSignal.timeout(SPOTIFY_FETCH_TIMEOUT_MS),
-          },
-        );
-        const rawData = await spotifyResponse.json();
-
-        const data = Value.Parse(SpotifyTrackSearchApiResponse, rawData);
-
-        const tracks = data.tracks.items.map((item) => ({
-          id: item.id,
-          name: item.name,
-          artists: item.artists.map((a) => a.name),
-          albumImageUrl: item.album.images[0]?.url,
-          previewUrl: item.preview_url ?? undefined,
-        }));
-
+        const tracks = await searchSpotifyTracks(`artist:${artist}`);
         return { tracks };
       } catch (error) {
         reply
@@ -179,8 +187,15 @@ export async function buildApp() {
       },
     },
     async (request, reply) => {
-      // Step 2 で Spotify 検索の呼び出しに置き換える
-      return { tracks: [] };
+      const { genre, limit } = request.query;
+      try {
+        const tracks = await searchSpotifyTracks(`genre:${genre}`, limit);
+        return { tracks };
+      } catch (error) {
+        reply
+          .code(502)
+          .send({ error: "Spotifyから予期しない形式のレスポンスが返されました" });
+      }
     },
   );
 
