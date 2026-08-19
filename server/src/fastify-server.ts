@@ -11,6 +11,8 @@ const PORT = 3000;
 
 const SPOTIFY_FETCH_TIMEOUT_MS = 5000;
 
+const SPOTIFY_SEARCH_LIMIT = 10;
+
 const SpotifyTokenResponse = Type.Object({
   access_token: Type.String(),
 });
@@ -49,8 +51,19 @@ const Track = Type.Object({
   previewUrl: Type.Optional(Type.String()),
 });
 
-const SearchResponse = Type.Object({
+const TrackListResponse = Type.Object({
   tracks: Type.Array(Track),
+});
+
+const TracksQuery = Type.Object({
+  genre: Type.String({ minLength: 1 }),
+  limit: Type.Optional(
+    Type.Integer({
+      minimum: 1,
+      maximum: SPOTIFY_SEARCH_LIMIT,
+      default: SPOTIFY_SEARCH_LIMIT,
+    }),
+  ),
 });
 
 const BadRequest = Type.Object({
@@ -79,6 +92,37 @@ const SpotifyTrackSearchApiResponse = Type.Object({
     items: Type.Array(SpotifyTrackSearchItem),
   }),
 });
+
+async function searchSpotifyTracks(query: string, limit = SPOTIFY_SEARCH_LIMIT) {
+  const accessToken = await getSpotifyAccessToken();
+
+  const params = new URLSearchParams({
+    q: query,
+    type: "track",
+    limit: String(limit),
+  });
+
+  const spotifyResponse = await fetch(
+    `https://api.spotify.com/v1/search?${params}`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      signal: AbortSignal.timeout(SPOTIFY_FETCH_TIMEOUT_MS),
+    },
+  );
+  const rawData = await spotifyResponse.json();
+
+  const data = Value.Parse(SpotifyTrackSearchApiResponse, rawData);
+
+  return data.tracks.items.map((item) => ({
+    id: item.id,
+    name: item.name,
+    artists: item.artists.map((a) => a.name),
+    albumImageUrl: item.album.images[0]?.url,
+    previewUrl: item.preview_url ?? undefined,
+  }));
+}
 
 export async function buildApp() {
   const fastify = Fastify({
@@ -120,7 +164,7 @@ export async function buildApp() {
           artist: Type.String(),
         }),
         response: {
-          200: SearchResponse,
+          200: TrackListResponse,
           400: BadRequest,
           502: ErrorResponse,
         },
@@ -129,29 +173,32 @@ export async function buildApp() {
     async (request, reply) => {
       const { artist } = request.query;
       try {
-        const accessToken = await getSpotifyAccessToken();
+        const tracks = await searchSpotifyTracks(`artist:${artist}`);
+        return { tracks };
+      } catch (error) {
+        reply
+          .code(502)
+          .send({ error: "Spotifyから予期しない形式のレスポンスが返されました" });
+      }
+    },
+  );
 
-        const spotifyResponse = await fetch(
-          `https://api.spotify.com/v1/search?q=${encodeURIComponent(`artist:${artist}`)}&type=track`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-            signal: AbortSignal.timeout(SPOTIFY_FETCH_TIMEOUT_MS),
-          },
-        );
-        const rawData = await spotifyResponse.json();
-
-        const data = Value.Parse(SpotifyTrackSearchApiResponse, rawData);
-
-        const tracks = data.tracks.items.map((item) => ({
-          id: item.id,
-          name: item.name,
-          artists: item.artists.map((a) => a.name),
-          albumImageUrl: item.album.images[0]?.url,
-          previewUrl: item.preview_url ?? undefined,
-        }));
-
+  fastify.get(
+    "/tracks",
+    {
+      schema: {
+        querystring: TracksQuery,
+        response: {
+          200: TrackListResponse,
+          400: BadRequest,
+          502: ErrorResponse,
+        },
+      },
+    },
+    async (request, reply) => {
+      const { genre, limit } = request.query;
+      try {
+        const tracks = await searchSpotifyTracks(`genre:${genre}`, limit);
         return { tracks };
       } catch (error) {
         reply
