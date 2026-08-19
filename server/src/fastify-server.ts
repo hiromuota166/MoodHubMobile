@@ -49,8 +49,13 @@ const Track = Type.Object({
   previewUrl: Type.Optional(Type.String()),
 });
 
-const SearchResponse = Type.Object({
+const TrackListResponse = Type.Object({
   tracks: Type.Array(Track),
+});
+
+const TracksQuery = Type.Object({
+  genre: Type.String({ minLength: 1 }),
+  limit: Type.Integer({ minimum: 1, maximum: 50, default: 20 })
 });
 
 const BadRequest = Type.Object({
@@ -120,7 +125,7 @@ export async function buildApp() {
           artist: Type.String(),
         }),
         response: {
-          200: SearchResponse,
+          200: TrackListResponse,
           400: BadRequest,
           502: ErrorResponse,
         },
@@ -158,6 +163,24 @@ export async function buildApp() {
           .code(502)
           .send({ error: "Spotifyから予期しない形式のレスポンスが返されました" });
       }
+    },
+  );
+
+  fastify.get(
+    "/tracks",
+    {
+      schema: {
+        querystring: TracksQuery,
+        response: {
+          200: TrackListResponse,
+          400: BadRequest,
+          502: ErrorResponse,
+        },
+      },
+    },
+    async (request, reply) => {
+      // Step 2 で Spotify 検索の呼び出しに置き換える
+      return { tracks: [] };
     },
   );
 
