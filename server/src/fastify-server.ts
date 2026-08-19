@@ -55,7 +55,7 @@ const TrackListResponse = Type.Object({
 
 const TracksQuery = Type.Object({
   genre: Type.String({ minLength: 1 }),
-  limit: Type.Integer({ minimum: 1, maximum: 50, default: 20 })
+  limit: Type.Integer({ minimum: 1, maximum: 10, default: 10 })
 });
 
 const BadRequest = Type.Object({
