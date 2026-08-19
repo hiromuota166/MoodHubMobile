@@ -11,6 +11,8 @@ const PORT = 3000;
 
 const SPOTIFY_FETCH_TIMEOUT_MS = 5000;
 
+const SPOTIFY_SEARCH_LIMIT = 10;
+
 const SpotifyTokenResponse = Type.Object({
   access_token: Type.String(),
 });
@@ -55,7 +57,13 @@ const TrackListResponse = Type.Object({
 
 const TracksQuery = Type.Object({
   genre: Type.String({ minLength: 1 }),
-  limit: Type.Optional(Type.Integer({ minimum: 1, maximum: 10, default: 10 }))
+  limit: Type.Optional(
+    Type.Integer({
+      minimum: 1,
+      maximum: SPOTIFY_SEARCH_LIMIT,
+      default: SPOTIFY_SEARCH_LIMIT,
+    }),
+  ),
 });
 
 const BadRequest = Type.Object({
@@ -85,13 +93,14 @@ const SpotifyTrackSearchApiResponse = Type.Object({
   }),
 });
 
-async function searchSpotifyTracks(query: string, limit?: number) {
+async function searchSpotifyTracks(query: string, limit = SPOTIFY_SEARCH_LIMIT) {
   const accessToken = await getSpotifyAccessToken();
 
-  const params = new URLSearchParams({ q: query, type: "track" });
-  if (limit !== undefined) {
-    params.set("limit", String(limit));
-  }
+  const params = new URLSearchParams({
+    q: query,
+    type: "track",
+    limit: String(limit),
+  });
 
   const spotifyResponse = await fetch(
     `https://api.spotify.com/v1/search?${params}`,
